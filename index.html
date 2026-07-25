@@ -1,611 +1,325 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
 <title>Jay Srinivasan — technical email courses for security companies</title>
-
 <meta name="description" content="Engineer-led email courses and technical content for cybersecurity and developer-tool companies.">
 
-
-
 <meta property="og:title" content="Jay Srinivasan — technical email courses for security companies">
-
 <meta property="og:description" content="I build email courses for security and developer-tool companies. Written by a working security engineer, not a marketing writer.">
-
 <meta property="og:type" content="website">
-
 <meta property="og:url" content="https://jaysrinivasan.dev">
 
-
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-
-
 <style>
-
 :root{
-
   --paper:#FCFCFB;
-
   --ink:#1A1D21;
-
   --body-ink:#31353B;
-
   --muted:#62676E;
-
   --rule:#E3E4E1;
-
   --accent:#1F4A5F;
-
   --soft:#F3F5F4;
 
-
-
   --body:"IBM Plex Sans", system-ui, -apple-system, sans-serif;
-
   --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
 
-
-
   --measure:44rem;
-
   --text:37rem;
-
   --gap:clamp(3.25rem, 7vw, 5rem);
-
 }
-
-
 
 *{box-sizing:border-box;}
-
 html{-webkit-text-size-adjust:100%;}
 
-
-
 body{
-
   margin:0;
-
   background:var(--paper);
-
   color:var(--body-ink);
-
   font-family:var(--body);
-
   font-size:1.0625rem;
-
   line-height:1.65;
-
   -webkit-font-smoothing:antialiased;
-
 }
-
-
 
 .wrap{width:100%;max-width:var(--measure);margin:0 auto;padding:0 1.5rem;}
 
-
-
 a{color:var(--accent);}
-
 a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
-
-
 
 header{padding:2.75rem 0 0;}
 
-
-
 .identity{
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:baseline;
-
   gap:1rem;
-
   padding-bottom:1.25rem;
-
   border-bottom:1px solid var(--rule);
-
 }
 
-
-
 .name{margin:0;font-size:1.0625rem;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
-
 .role{margin:0;color:var(--muted);font-family:var(--mono);font-size:0.75rem;text-align:right;}
-
-
 
 .hero{padding:var(--gap) 0 0;}
 
-
-
 .finding{
-
   padding-left:1.25rem;
-
   border-left:2px solid var(--accent);
-
   margin-bottom:2.25rem;
-
 }
 
-
-
 .finding p{margin:0 0 0.7rem;max-width:var(--text);}
-
 .finding p:last-child{margin-bottom:0;}
-
-
 
 .finding strong{color:var(--ink);font-weight:600;}
 
-
-
 h1{
-
   max-width:40rem;
-
   margin:0 0 1.35rem;
-
   color:var(--ink);
-
   font-size:clamp(1.95rem, 5.5vw, 2.9rem);
-
   line-height:1.12;
-
   font-weight:600;
-
   letter-spacing:-0.03em;
-
 }
-
-
 
 .hero-copy{max-width:var(--text);margin:0 0 1.1rem;}
 
-
-
 .actions{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.75rem;}
 
-
-
 .button{
-
   display:inline-block;
-
   padding:0.75rem 1.25rem;
-
   border:1px solid var(--ink);
-
   border-radius:3px;
-
   font-size:0.9375rem;
-
   font-weight:500;
-
   text-decoration:none;
-
 }
 
-
-
 .button-primary{background:var(--ink);color:var(--paper);}
-
 .button-primary:hover{background:var(--accent);border-color:var(--accent);}
-
 .button-secondary{background:transparent;color:var(--ink);}
-
 .button-secondary:hover{background:var(--soft);}
-
-
 
 section{padding:var(--gap) 0 0;}
 
-
-
 h2{
-
   margin:0 0 1.25rem;
-
   padding-bottom:0.75rem;
-
   border-bottom:1px solid var(--rule);
-
   color:var(--ink);
-
   font-size:1.125rem;
-
   font-weight:600;
-
   letter-spacing:-0.01em;
-
 }
-
-
 
 h3{margin:0 0 0.5rem;color:var(--ink);font-size:1.05rem;line-height:1.4;font-weight:600;}
 
-
-
 section p{max-width:var(--text);margin:0 0 1.1rem;}
 
-
-
 .offer{padding:1.5rem;background:var(--soft);border:1px solid var(--rule);border-radius:4px;}
-
 .offer-name{margin:0 0 0.5rem;font-family:var(--mono);font-size:0.8rem;color:var(--accent);}
-
 .offer p:last-child{margin-bottom:0;}
 
-
-
 ul.list,ol.list{max-width:var(--text);margin:0;padding-left:1.15rem;}
-
 ul.list li,ol.list li{margin-bottom:0.5rem;}
 
-
+.audience{margin-top:1.75rem;}
+.audience h3{margin-bottom:0.6rem;}
 
 .course-box{padding-left:1.25rem;border-left:2px solid var(--rule);}
-
 .course-box p:last-child{margin-bottom:0;}
-
-
 
 .note{margin-top:0.85rem !important;color:var(--muted);font-size:0.875rem;}
 
-
-
 .pieces{list-style:none;margin:0;padding:0;}
-
 .pieces li{padding:0.9rem 0;border-bottom:1px solid var(--rule);}
-
 .pieces li:last-child{border-bottom:none;}
-
 .pieces a{color:var(--ink);font-weight:500;text-decoration:none;}
-
 .pieces a:hover{color:var(--accent);text-decoration:underline;}
-
 .pieces span{display:block;margin-top:0.15rem;color:var(--muted);font-family:var(--mono);font-size:0.75rem;}
 
-
-
 .contact-box{padding:1.6rem;background:var(--ink);color:#E4E6E7;border-radius:4px;}
-
 .contact-box h2{color:var(--paper);border-color:#3C4147;}
-
 .contact-box p{color:#D8DBDC;}
-
 .contact-box .button{background:var(--paper);border-color:var(--paper);color:var(--ink);}
-
 .contact-box .button:hover{background:#E7E9E8;}
 
-
-
 footer{
-
   margin-top:var(--gap);
-
   padding:1.75rem 0 3.5rem;
-
   border-top:1px solid var(--rule);
-
   color:var(--muted);
-
   font-size:0.875rem;
-
 }
-
-
 
 footer a{color:var(--muted);text-decoration:none;}
-
 footer a:hover{color:var(--ink);}
 
-
-
 @media (max-width:520px){
-
   .identity{display:block;}
-
   .role{margin-top:0.2rem;text-align:left;}
-
   .actions{display:grid;}
-
   .button{text-align:center;}
-
 }
-
-
 
 @media (prefers-reduced-motion: no-preference){
-
   html{scroll-behavior:smooth;}
-
 }
-
 </style>
-
 </head>
-
-
 
 <body>
 
-
-
 <header>
-
   <div class="wrap">
-
     <div class="identity">
-
       <p class="name">Jay Srinivasan</p>
-
       <p class="role">Security engineer · technical writer</p>
-
     </div>
-
   </div>
-
 </header>
-
-
 
 <main>
 
-
-
   <section class="hero">
-
     <div class="wrap">
 
-
-
       <div class="finding">
-
         <p><strong>I built a deliberately vulnerable application, then ran it through a full security pipeline — SAST, SCA, DAST, threat modeling, risk scoring, remediation.</strong></p>
-
         <p>The default scan configuration surfaced 7 of the 18 issues that a local run with custom rules and cross-file analysis found. Same tool, same codebase.</p>
-
         <p>Had I trusted the default, I would have shipped an application I believed was clean. I wrote the whole thing up, and it became a six-part email course.</p>
-
       </div>
-
-
 
       <h1>I build technical email courses for security companies.</h1>
 
-
-
       <p class="hero-copy">Most technical marketing lands in one of two ditches: vendor language with nothing practical in it, or a specification document nobody finishes. I write the thing in between.</p>
-
-
 
       <p class="hero-copy">I can read your documentation, test the product, and talk to your engineers without marketing having to translate anything first — because this is my day job.</p>
 
-
-
       <div class="actions">
-
         <a class="button button-primary" href="#course">See the sample course</a>
-
         <a class="button button-secondary" href="#contact">Discuss a course</a>
-
       </div>
-
-
 
     </div>
-
   </section>
 
-
-
   <section id="service">
-
     <div class="wrap">
-
       <h2>The service</h2>
 
-
-
       <div class="offer">
-
         <p class="offer-name">Technical email course</p>
-
         <h3>A five-to-seven lesson course for your audience, about your product</h3>
-
         <p>You get the strategy, the research, the lessons, and everything needed to launch it:</p>
-
         <ul class="list">
-
           <li>Topic and audience strategy, built around one clear reader action</li>
-
           <li>Product research — documentation, architecture, hands-on testing where access allows</li>
-
           <li>Five to seven technically reviewed lessons, with code, checklists, or diagrams where they help</li>
-
           <li>Landing page and welcome email copy</li>
-
           <li>A closing lesson that leads to a trial, demo, or conversation without reading as a pitch</li>
-
         </ul>
-
       </div>
-
-
 
       <p style="margin-top:1.5rem;">The shape of it: I learn the product, build the sequence, and hand you publication-ready lessons you can load into your own email platform. Two to three weeks, typically.</p>
 
+      <div class="audience">
+        <h3>Who I build these for</h3>
+        <p>Companies with a technically strong product and a hard time explaining it to the engineers who'd buy it:</p>
+        <ul class="list">
+          <li>Application security and software supply-chain vendors</li>
+          <li>SAST, SCA, DAST, and ASPM platforms</li>
+          <li>Identity, workload-identity, and secrets management</li>
+          <li>Cloud security, API security, and platform engineering tools</li>
+          <li>QA and software testing platforms moving into security</li>
+          <li>AI-security and LLM-safety vendors</li>
+          <li>Technical marketing agencies with security clients</li>
+        </ul>
+      </div>
     </div>
-
   </section>
-
-
 
   <section id="course">
-
     <div class="wrap">
-
       <h2>See how I build one</h2>
 
-
-
       <div class="course-box">
-
         <h3>Break It, Then Fix It</h3>
-
         <p>A free six-part course built from the project above — for developers and security practitioners who want to know what scanners find, what they miss, and how to turn findings into work that actually gets done.</p>
-
       </div>
 
-
-
       <ol class="list" style="margin-top:1.35rem;">
-
         <li>Why I built something deliberately broken</li>
-
         <li>What three scanners found — and what the defaults missed</li>
-
         <li>Threat modeling without the ceremony</li>
-
         <li>Risk scoring that survives a real backlog</li>
-
         <li>Remediation, with before-and-after code</li>
-
         <li>The whole pipeline as a repeatable checklist</li>
-
       </ol>
 
-
-
       <p style="margin-top:1.5rem;">
-
-        <!-- Replace # with your Kit landing page URL -->
-
         <a class="button button-primary" href="https://jaysrinivasan.kit.com/555eafbe5f">Start the free course</a>
-
       </p>
-
       <p class="note">One lesson every two days. Free, unsubscribe any time. Sign up and you'll see exactly what I'd build for you.</p>
-
     </div>
-
   </section>
 
-
-
-  <section>
-
+  <section id="projects">
     <div class="wrap">
+      <h2>Things I've built</h2>
 
-      <h2>Who this is for</h2>
+      <div class="course-box">
+        <h3>SIGINT</h3>
+        <p>A security newspaper that reads arXiv, Hacker News, and CISA's exploited-vulnerabilities catalog every day, scores each item for novelty and actionability against a rubric I tuned by hand, and flags when something it covered earlier turns up as actively exploited in the wild. Go, no framework, runs on a cron for a few dollars a month.</p>
+      </div>
 
-      <p>Companies with a technically strong product and a hard time explaining it to the engineers who'd buy it.</p>
-
-      <ul class="list">
-
-        <li>Application security and software supply-chain vendors</li>
-
-        <li>SAST, SCA, DAST, and ASPM platforms</li>
-
-        <li>Identity, workload-identity, and secrets management</li>
-
-        <li>Cloud security, API security, and platform engineering tools</li>
-
-        <li>Technical marketing agencies with security clients</li>
-
-      </ul>
-
+      <div class="actions">
+        <a class="button button-secondary" href="https://sigint.wtf">Read it</a>
+        <a class="button button-secondary" href="https://github.com/realjay79/sigint">Source</a>
+      </div>
     </div>
-
   </section>
 
-
-
   <section>
-
     <div class="wrap">
-
       <h2>Selected writing</h2>
-
       <ul class="pieces">
-
         <li><a href="https://jayriniv.medium.com/securing-the-dumbest-app-ive-built-on-purpose-cd4495b47d5b">Securing the dumbest app I've built — on purpose<span>Part 1 · Setup</span></a></li>
-
         <li><a href="https://jayriniv.medium.com/part-2-what-the-scanners-found-before-i-knew-what-mattered-de6f132303a3">What the scanners found before I knew what mattered<span>Part 2 · SAST, SCA, DAST</span></a></li>
-
         <li><a href="https://jayriniv.medium.com/part-3-threat-modeling-finding-creative-ways-to-ruin-my-own-day-68f1f55b91b0">Finding creative ways to ruin my own day<span>Part 3 · Threat modeling</span></a></li>
-
         <li><a href="https://jayriniv.medium.com/part-4-risk-assessment-not-all-fires-need-the-fire-department-7557af410434">Not all fires need the fire department<span>Part 4 · Risk assessment</span></a></li>
-
         <li><a href="https://jayriniv.medium.com/part-5-remediation-fixing-vulnerabilities-like-a-responsible-adult-8c34f5687298">Fixing vulnerabilities like a responsible adult<span>Part 5 · Remediation</span></a></li>
-
         <li><a href="https://jayriniv.medium.com/whats-the-deal-with-spiffe-spire-18ae8fdd4d6c">What's the deal with SPIFFE and SPIRE?<span>Explainer · Workload identity</span></a></li>
         <li><a href="https://jayriniv.medium.com/i-have-never-once-enjoyed-writing-a-threat-model-heres-the-one-that-didn-t-suck-d3c7cb4c607d?sharedUserId=jayriniv">I have never once enjoyed writing a threat model<span>Essay · Threat modeling</span></a></li>
       </ul>
-
     </div>
-
   </section>
-
-
 
   <section id="contact">
-
     <div class="wrap">
-
       <div class="contact-box">
-
         <h2>Planning a technical education campaign?</h2>
-
         <p>Send me the product, the audience, and what you want readers to do at the end. I'll come back with a course angle and a lesson outline — no charge for that part.</p>
-
         <a class="button" href="mailto:hello@jaysrinivasan.dev?subject=Technical%20email%20course&body=Product%3A%0A%0AAudience%3A%0A%0AWhat%20we%20want%20readers%20to%20do%3A%0A%0AWhat%20the%20course%20should%20teach%3A">Email me</a>
-
       </div>
-
     </div>
-
   </section>
-
-
 
 </main>
 
-
-
 <footer>
-
   <div class="wrap">
-
-    Jay Srinivasan · <a href="mailto:hello@jaysrinivasan.dev">hello@jaysrinivasan.dev</a> · <a href="https://jayriniv.medium.com">Medium</a>
-
+    Jay Srinivasan · <a href="mailto:hello@jaysrinivasan.dev">hello@jaysrinivasan.dev</a> · <a href="https://jayriniv.medium.com">Medium</a> · <a href="https://sigint.wtf">SIGINT</a>
   </div>
-
 </footer>
 
-
-
 </body>
-
 </html>
